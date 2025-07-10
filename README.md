@@ -39,6 +39,20 @@ Terraform import is a command that uses an existing cloud resource's unique ID t
 
 
 
+### Create an Internet Gateway (IGW):
+
+- Go to VPC Dashboard > Internet Gateways > Create internet gateway.
+
+- Name tag: `My-internet-gateway`
+
+- Click "Create internet gateway".
+
+- Attach to VPC: Select your new IGW, go to "Actions" > "Attach to VPC". Select My-VPC.
+
+Record the IGW ID (e.g., igw-xxxxxxxxxxxxxxxxx).
+
+
+
 
 ### Create a Public Route Table:
 
@@ -50,7 +64,7 @@ Terraform import is a command that uses an existing cloud resource's unique ID t
 
 - Click "Create route table".
 
-Record the Route Table ID (e.g., rtb-xxxxxxxxxxxxxxxxx).
+- Record the Route Table ID (e.g., rtb-xxxxxxxxxxxxxxxxx).
 
 - Associate with Subnet: Go to "Subnet associations" tab > "Edit subnet associations". Select your Public-subnet-a. Click "Save associations".
 
@@ -95,15 +109,15 @@ Record the Route Table ID (e.g., rtb-xxxxxxxxxxxxxxxxx).
 
 - Security group name: `My-EC2-SG` (Use this exact name).
 
-` Description: Security group for My-EC2 instance (Use this exact description).
+- Description: Security group for My-EC2 instance (Use this exact description).
 
 - Add inbound rule: Type SSH, Source Anywhere (0.0.0.0/0).
 
 - Click "Launch instance".
 
-Record the EC2 Instance ID (e.g., i-xxxxxxxxxxxxxxxxx).
+- Record the EC2 Instance ID (e.g., i-xxxxxxxxxxxxxxxxx).
 
-Record the Custom Security Group ID (for My-EC2-SG, e.g., sg-xxxxxxxxxxxxxxxxx).
+- Record the Custom Security Group ID (for My-EC2-SG, e.g., sg-xxxxxxxxxxxxxxxxx).
 
 ### Create an S3 Bucket:
 
