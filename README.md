@@ -99,11 +99,11 @@ Record the IGW ID (e.g., igw-xxxxxxxxxxxxxxxxx).
 
 - Network settings:
 
-- VPC: Select My-VPC.
+  - VPC: Select My-VPC.
 
-- Subnet: Select Public-subnet-a.
+  - Subnet: Select Public-subnet-a.
 
-- Auto-assign public IP: This should show "Enable" (inherited from subnet).
+  - Auto-assign public IP: This should show "Enable" (inherited from subnet).
 
 - Firewall (security groups): Select "Create security group".
 
