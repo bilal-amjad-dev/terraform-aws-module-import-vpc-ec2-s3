@@ -147,13 +147,73 @@ Record the IGW ID (e.g., igw-xxxxxxxxxxxxxxxxx).
 
 
 
+## Terraform Project Setup
+
+```bash
+.
+├── main.tf
+├── variables.tf
+├── terraform.tfvars
+└── modules/
+    ├── ec2/
+    │   ├── ec2.tf
+    │   └── variables.tf
+    ├── s3/
+    │   ├── s3.tf
+    │   └── variables.tf
+    └── vpc/
+        ├── vpc.tf
+        ├── variables.tf
+        └── outputs.tf
+```
 
 
 
 
+Terraform init:
+```bash
+terraform init
+```
+Terraform import:
+```bash
+# 1. Import the VPC
+terraform import 'module.vpc.aws_vpc.imported_vpc' 'YOUR_ACTUAL_VPC_ID_HERE'
 
+# 2. Import the Internet Gateway
+terraform import 'module.vpc.aws_internet_gateway.imported_igw' 'YOUR_ACTUAL_IGW_ID_HERE'
 
+# 3. Import the Subnet
+terraform import 'module.vpc.aws_subnet.imported_subnet' 'YOUR_ACTUAL_SUBNET_ID_HERE'
 
+# 4. Import the Route Table
+terraform import 'module.vpc.aws_route_table.imported_rt' 'YOUR_ACTUAL_RT_ID_HERE'
+
+# 5. Import the Route Table Association (ID format: subnet-id/route-table-id)
+terraform import 'module.vpc.aws_route_table_association.imported_rta' 'YOUR_ACTUAL_SUBNET_ID_HERE/YOUR_ACTUAL_RT_ID_HERE'
+
+# 6. Import the Custom Security Group (e.g., 'My-EC2-SG')
+# Find its ID in the AWS console under VPC -> Security Groups
+terraform import 'module.ec2.aws_security_group.custom_sg' 'YOUR_ACTUAL_CUSTOM_SECURITY_GROUP_ID_HERE'
+
+# 7. Import the EC2 Instance
+# Use the ACTUAL EC2 INSTANCE ID here (it starts with 'i-')
+terraform import 'module.ec2.aws_instance.imported_ec2' 'YOUR_ACTUAL_EC2_INSTANCE_ID_HERE'
+
+# 8. Import the S3 Bucket
+terraform import 'module.s3.aws_s3_bucket.imported_bucket' 'YOUR_ACTUAL_S3_BUCKET_NAME_HERE'
+
+# 9. Import the Default Security Group
+# Find its ID in the AWS console under VPC -> Security Groups (name "default")
+terraform import 'module.vpc.aws_default_security_group.default' 'YOUR_ACTUAL_DEFAULT_SECURITY_GROUP_ID_HERE'
+```
+Terraform plan
+```bash
+terraform plan
+```
+Terraform destroy:
+```bash
+terraform destroy
+```
 
 
 
