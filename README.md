@@ -107,11 +107,11 @@ Record the IGW ID (e.g., igw-xxxxxxxxxxxxxxxxx).
 
 - Firewall (security groups): Select "Create security group".
 
-- Security group name: `My-EC2-SG` (Use this exact name).
+  - Security group name: `My-EC2-SG` (Use this exact name).
 
-- Description: Security group for My-EC2 instance (Use this exact description).
+  - Description: Security group for My-EC2 instance (Use this exact description).
 
-- Add inbound rule: Type SSH, Source Anywhere (0.0.0.0/0).
+  - Add inbound rule: Type SSH, Source Anywhere (0.0.0.0/0).
 
 - Click "Launch instance".
 
